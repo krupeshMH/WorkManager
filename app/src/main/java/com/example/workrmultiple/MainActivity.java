@@ -14,43 +14,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         viewModel = ViewModelProviders.of(this).get(PostsViewModel.class);
-        viewModel.initRetrofit();
-        // viewModel.observePosts();
-        //subscribeObservers();
         viewModel.callAllApis();
     }
-
-/*
-    private void subscribeObservers() {
-        viewModel.observePosts().removeObservers(this);
-        viewModel.observePosts().observe(this, new Observer<Resource<List<Post>>>() {
-            @Override
-            public void onChanged(Resource<List<Post>> listResource) {
-                if (listResource != null) {
-                    switch (listResource.status) {
-
-                        case LOADING: {
-                            Log.d(TAG, "onChanged: LOADING...");
-                            break;
-                        }
-
-                        case SUCCESS: {
-                            Log.d(TAG, "onChanged: got posts...");
-                            //adapter.setPosts(listResource.data);
-                            break;
-                        }
-
-                        case ERROR: {
-                            Log.e(TAG, "onChanged: ERROR..." + listResource.message);
-                            break;
-                        }
-                    }
-                }
-            }
-        });
-    }
-*/
-
-
-
 }
